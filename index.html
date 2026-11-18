@@ -1,0 +1,274 @@
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Virtual Science Lab</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">🧪 Virtual Science Lab</div>
+            <div class="nav-links">
+                <button class="nav-btn" onclick="showSection('home')">Bosh sahifa</button>
+                <button class="nav-btn" onclick="showSection('chemistry')">🧪 Kimyo</button>
+                <button class="nav-btn" onclick="showSection('physics')">⚡ Fizika</button>
+                <button class="nav-btn" onclick="showSection('history')">📋 Tarixi</button>
+                <button class="nav-btn" onclick="showSection('stats')">📊 Statistika</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Background Particles -->
+    <div class="particles-background"></div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- HOME SECTION -->
+        <section id="home" class="section active">
+            <div class="home-content">
+                <div class="home-header">
+                    <h1>🧪 VIRTUAL SCIENCE LAB</h1>
+                    <p>Kimyo va fizikani tajriba orqali o'rganing</p>
+                </div>
+                
+                <div class="home-buttons">
+                    <button class="lab-card" onclick="showSection('chemistry')">
+                        <div class="card-icon">🧪</div>
+                        <div class="card-title">Kimyo Laboratoriyasi</div>
+                        <div class="card-desc">Molekulalarni qo'shib reaksiya yarating</div>
+                    </button>
+                    
+                    <button class="lab-card" onclick="showSection('physics')">
+                        <div class="card-icon">⚡</div>
+                        <div class="card-title">Fizika Laboratoriyasi</div>
+                        <div class="card-desc">Fizik tajribalarni interaktiv o'rganing</div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHEMISTRY SECTION -->
+        <section id="chemistry" class="section">
+            <div class="lab-container">
+                <!-- Sidebar - Molecules List -->
+                <div class="sidebar">
+                    <h2>Moddalar</h2>
+                    <div class="molecules-list">
+                        <div class="molecule-card" draggable="true" data-molecule="H2" data-name="Vodorod">
+                            <div class="molecule-symbol">H₂</div>
+                            <div class="molecule-name">Vodorod</div>
+                        </div>
+                        <div class="molecule-card" draggable="true" data-molecule="O2" data-name="Kislorod">
+                            <div class="molecule-symbol">O₂</div>
+                            <div class="molecule-name">Kislorod</div>
+                        </div>
+                        <div class="molecule-card" draggable="true" data-molecule="N2" data-name="Azot">
+                            <div class="molecule-symbol">N₂</div>
+                            <div class="molecule-name">Azot</div>
+                        </div>
+                        <div class="molecule-card" draggable="true" data-molecule="C" data-name="Uglerod">
+                            <div class="molecule-symbol">C</div>
+                            <div class="molecule-name">Uglerod</div>
+                        </div>
+                        <div class="molecule-card" draggable="true" data-molecule="Na" data-name="Natriy">
+                            <div class="molecule-symbol">Na</div>
+                            <div class="molecule-name">Natriy</div>
+                        </div>
+                        <div class="molecule-card" draggable="true" data-molecule="Cl2" data-name="Xlor">
+                            <div class="molecule-symbol">Cl₂</div>
+                            <div class="molecule-name">Xlor</div>
+                        </div>
+                        <div class="molecule-card" draggable="true" data-molecule="Fe" data-name="Temir">
+                            <div class="molecule-symbol">Fe</div>
+                            <div class="molecule-name">Temir</div>
+                        </div>
+                        <div class="molecule-card" draggable="true" data-molecule="S" data-name="Oltingugurt">
+                            <div class="molecule-symbol">S</div>
+                            <div class="molecule-name">Oltingugurt</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Experiment Area -->
+                <div class="main-area">
+                    <div class="experiment-field" id="experimentField">
+                        <div class="field-label">Molekulalarni bu yerga sudrang</div>
+                    </div>
+                    
+                    <!-- Result Panel -->
+                    <div class="result-panel" id="resultPanel">
+                        <div class="result-title">Natija</div>
+                        <div class="result-content" id="resultContent">
+                            Tajriba natijasi shu yerda ko'rinadi
+                        </div>
+                    </div>
+
+                    <!-- Clear Button -->
+                    <button class="clear-btn" onclick="clearExperiment()">🗑️ Tozalash</button>
+                </div>
+
+                <!-- Right Panel - Stats -->
+                <div class="right-panel">
+                    <div class="stats-box">
+                        <h3>📊 Statistika</h3>
+                        <div class="stat-item">
+                            <span>Tajribalar:</span>
+                            <span id="expCount" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>Reaksiyalar:</span>
+                            <span id="reactCount" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>XP:</span>
+                            <span id="xpCount" class="stat-value">0</span>
+                        </div>
+                    </div>
+
+                    <div class="level-box">
+                        <h3>🏆 Daraja</h3>
+                        <div class="level-name" id="levelName">🧪 Beginner</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="level-info" id="levelInfo">0 / 100 XP</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHYSICS SECTION -->
+        <section id="physics" class="section">
+            <div class="physics-container">
+                <h2>Fizika Tajribalari</h2>
+                
+                <!-- Physics Tabs -->
+                <div class="physics-tabs">
+                    <button class="physics-tab active" onclick="switchPhysicsTab('circuit', this)">⚡ Elektr Zanjiri</button>
+                    <button class="physics-tab" onclick="switchPhysicsTab('magnet', this)">🧲 Magnit</button>
+                    <button class="physics-tab" onclick="switchPhysicsTab('gravity', this)">⚽ Gravitatsiya</button>
+                    <button class="physics-tab" onclick="switchPhysicsTab('force', this)">🚀 Kuch va Harakat</button>
+                    <button class="physics-tab" onclick="switchPhysicsTab('waves', this)">🌊 To'lqin</button>
+                </div>
+
+                <!-- Physics Content -->
+                <div class="physics-content">
+                    <!-- Elektr Zanjiri -->
+                    <div id="circuit-content" class="physics-exp active">
+                        <h3>⚡ Elektr Zanjiri</h3>
+                        <canvas id="circuitCanvas" width="400" height="300"></canvas>
+                        <div class="circuit-info">
+                            <button onclick="toggleCircuit()">Zanjirni yoqish / o'chirish</button>
+                            <div id="circuitStatus">Zanjai: O'CHIQ</div>
+                        </div>
+                    </div>
+
+                    <!-- Magnit -->
+                    <div id="magnet-content" class="physics-exp">
+                        <h3>🧲 Magnit Tajribasi</h3>
+                        <canvas id="magnetCanvas" width="400" height="300"></canvas>
+                        <div class="magnet-slider">
+                            <label>Magnit kuchi:</label>
+                            <input type="range" id="magnetStrength" min="1" max="10" value="5" oninput="updateMagnetField()">
+                            <span id="magnetValue">5</span>
+                        </div>
+                    </div>
+
+                    <!-- Gravitatsiya -->
+                    <div id="gravity-content" class="physics-exp">
+                        <h3>⚽ Gravitatsiya</h3>
+                        <canvas id="gravityCanvas" width="400" height="300"></canvas>
+                        <div class="gravity-info">
+                            <button onclick="dropBall()">To'pni Tushir</button>
+                            <div id="gravityData">Vaqt: 0s | Tezlik: 0 m/s</div>
+                        </div>
+                    </div>
+
+                    <!-- Kuch va Harakat -->
+                    <div id="force-content" class="physics-exp">
+                        <h3>🚀 Kuch va Harakat (F = m × a)</h3>
+                        <canvas id="forceCanvas" width="400" height="300"></canvas>
+                        <div class="force-control">
+                            <div class="control-group">
+                                <label>Massa (kg):</label>
+                                <input type="range" id="mass" min="1" max="10" value="5" oninput="updateForce()">
+                                <span id="massValue">5</span>
+                            </div>
+                            <div class="control-group">
+                                <label>Kuch (N):</label>
+                                <input type="range" id="force" min="1" max="100" value="10" oninput="updateForce()">
+                                <span id="forceValue">10</span>
+                            </div>
+                            <div class="result-box">
+                                <div>a = F / m</div>
+                                <div id="accelerationResult">a = 2 m/s²</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- To'lqin -->
+                    <div id="waves-content" class="physics-exp">
+                        <h3>🌊 To'lqin Tajribasi</h3>
+                        <canvas id="wavesCanvas" width="400" height="300"></canvas>
+                        <div class="waves-control">
+                            <div class="control-group">
+                                <label>Amplituda:</label>
+                                <input type="range" id="amplitude" min="10" max="100" value="40" oninput="updateWave()">
+                                <span id="amplitudeValue">40</span>
+                            </div>
+                            <div class="control-group">
+                                <label>Chastota:</label>
+                                <input type="range" id="frequency" min="0.5" max="5" step="0.1" value="1" oninput="updateWave()">
+                                <span id="frequencyValue">1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HISTORY SECTION -->
+        <section id="history" class="section">
+            <h2>📋 Tajriba Tarixi</h2>
+            <div class="history-list" id="historyList">
+                <div class="history-empty">Hali tajriba yo'q</div>
+            </div>
+        </section>
+
+        <!-- STATS SECTION -->
+        <section id="stats" class="section">
+            <h2>📊 Statistika</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🧪</div>
+                    <div class="stat-label">Tajribalar</div>
+                    <div class="stat-number" id="totalExperiments">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚗️</div>
+                    <div class="stat-label">Reaksiyalar</div>
+                    <div class="stat-number" id="totalReactions">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-label">Fizika Tajribalari</div>
+                    <div class="stat-number" id="totalPhysics">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-label">XP</div>
+                    <div class="stat-number" id="totalXP">0</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
